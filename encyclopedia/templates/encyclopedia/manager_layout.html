@@ -1,0 +1,18 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block body %}
+    <div class="col-md-10 mx-auto">
+        <h1>
+            {% block title_in_page %}
+            {% endblock %}
+        </h1>
+
+        <form action="{% block url %}{% endblock %}" method="POST" class="d-flex flex-column col-11 col-md-12 mx-auto">
+            {% csrf_token %}
+            {% block form %}
+            {% endblock %}
+            <input type="submit" value="Save" class="btn btn-dark col-8 col-md-3 mx-auto mt-3">
+        </form>
+    </div>
+
+{% endblock %}
